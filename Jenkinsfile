@@ -16,10 +16,30 @@ pipeline {
                bat 'dir' // run shell-command to get files list
             }
         }
-        stage('Stage 4: Imitation of an error') {
+        stage('Stage 4: File Operations') {
             steps {
-                bat 'abrakadabra' // run shell-comand to get data
+               bat '''
+               echo This is a test > testfile.txt
+               type testfile.txt
+               del testfile.txt
+               '''
             }
         }
+        stage('Stage 5: Network Check') {
+            steps {
+               bat 'ping 127.0.0.1'
+            }
+       }
+       stage('Stage 6: Show Folder Tree') {
+            steps {
+               bat 'ping 127.0.0.1'
+            }
+       }
+       stage('Stage 7: Computername') {
+            steps {
+               bat 'hostname'
+            }
+       }
     }
+
 }
